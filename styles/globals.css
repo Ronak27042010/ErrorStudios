@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background:#07070c; color:#f5f7ff; scroll-behavior:smooth; }
+body { font-family: Inter, system-ui, sans-serif; overflow-x:hidden; }
+
+.glass { @apply bg-white/5 border border-white/10 backdrop-blur-xl; }
+.section-title { @apply text-3xl md:text-5xl font-semibold tracking-tight; }
+.reveal { opacity: 0; transform: translateY(20px); animation: reveal .8s ease forwards; }
+@keyframes reveal { to { opacity:1; transform:translateY(0); } }
+
+.mouse-glow::before {
+  content:''; position:absolute; inset:auto; width:360px; height:360px;
+  background: radial-gradient(circle, rgba(92,225,255,.35), rgba(138,110,255,0) 60%);
+  left: var(--x,50%); top: var(--y,50%); transform: translate(-50%, -50%);
+  pointer-events:none;
+}
